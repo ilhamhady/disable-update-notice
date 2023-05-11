@@ -27,7 +27,8 @@ if ( ! class_exists( 'Disable_Plugin_Update_Notices' ) ) {
 
         public function add_settings_link( $links ) {
             $settings_link = '<a href="options-general.php?page=disable-plugin-update-notices">' . __( 'Settings' ) . '</a>';
-            array_unshift( $links, $settings_link );
+            $repo_link = '<a href="https://github.com/ilhamhady/disable-update-notice" target="_blank">' . __( 'Repo' ) . '</a>';
+            array_unshift( $links, $settings_link, $repo_link );
             return $links;
         }
 
