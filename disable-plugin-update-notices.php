@@ -2,7 +2,7 @@
 /*
 Plugin Name: Disable Plugin Update Notices
 Description: This plugin allows you to disable update notices for selected plugins.
-Version: 1.0
+Version: 1.0.1
 Author: Muhammad Ilham
 */
 
