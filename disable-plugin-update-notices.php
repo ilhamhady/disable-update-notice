@@ -34,9 +34,7 @@ if ( ! class_exists( 'Disable_Plugin_Update_Notices' ) ) {
 
         public function page_init() {
             register_setting( 'disable_plugin_update_notices_settings', 'disabled_plugins', array( $this, 'sanitize' ) );
-
             add_settings_section( 'setting_section', 'Disable Plugin Update Notices', array( $this, 'section_info' ), 'disable-plugin-update-notices' );
-
             add_settings_field( 'disabled_plugins', 'Disable update notices for:', array( $this, 'disabled_plugins_callback' ), 'disable-plugin-update-notices', 'setting_section' );
         }
 
@@ -80,7 +78,6 @@ if ( ! class_exists( 'Disable_Plugin_Update_Notices' ) ) {
             }
             echo '</table>';
         }
-
 
         public function disable_selected_plugin_updates( $transient ) {
             if ( ! is_object( $transient ) || ! isset( $transient->response ) ) {
