@@ -66,8 +66,8 @@ if ( ! class_exists( 'Disable_Plugin_Update_Notices' ) ) {
             foreach ( $all_plugins as $plugin_path => $plugin_data ) {
                 $checked = in_array( $plugin_path, $disabled_plugins ) ? 'checked="checked"' : '';
                 echo '<tr>';
-                echo '<td><input type="checkbox" name="disabled_plugins[]" value="' . esc_attr( $plugin_path ) . '" ' . $checked . '></td>';
-                echo '<td>' . esc_html( $plugin_data['Name'] ) . '</td>';
+                echo '<td style="padding: 10px 0"><input type="checkbox" name="disabled_plugins[]" value="' . esc_attr( $plugin_path ) . '" ' . $checked . '></td>';
+                echo '<td style="padding: 10px">' . esc_html( $plugin_data['Name'] ) . '</td>';
                 echo '</tr>';
             }
             echo '</table>';
