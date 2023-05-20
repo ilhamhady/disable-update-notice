@@ -28,7 +28,7 @@ if ( ! class_exists( 'Disable_Plugin_Update_Notices' ) ) {
 
         public function add_plugin_action_links( $links ) {
             $settings_link = '<a href="options-general.php?page=disable-plugin-update-notices">' . __( 'Settings' ) . '</a>';
-            array_unshift( $links, $settings_link, $repo_link );
+            array_unshift( $links, $settings_link );
             return $links;
         }
 
