@@ -2,7 +2,7 @@
 /*
 Plugin Name: Disable Plugin Update Notices
 Description: This plugin allows you to disable update notices for selected plugins.
-Version: 1.0.2
+Version: 1.0.3
 Author: Muhammad Ilham
 */
 
@@ -18,17 +18,26 @@ if ( ! class_exists( 'Disable_Plugin_Update_Notices' ) ) {
             add_action( 'admin_menu', array( $this, 'add_plugin_page' ) );
             add_action( 'admin_init', array( $this, 'page_init' ) );
             add_filter( 'site_transient_update_plugins', array( $this, 'disable_selected_plugin_updates' ) );
-            add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), array( $this, 'add_settings_link' ) );
+            add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), array( $this, 'add_plugin_action_links' ) );
+            add_filter( 'plugin_row_meta', array( $this, 'add_plugin_row_meta_links' ), 10, 2 );
         }
 
         public function add_plugin_page() {
             add_options_page( 'Disable Plugin Update Notices', 'Disable Plugin Update Notices', 'manage_options', 'disable-plugin-update-notices', array( $this, 'admin_page_content' ) );
         }
 
-        public function add_settings_link( $links ) {
+        public function add_plugin_action_links( $links ) {
             $settings_link = '<a href="options-general.php?page=disable-plugin-update-notices">' . __( 'Settings' ) . '</a>';
-            $repo_link = '<a href="https://github.com/ilhamhady/disable-update-notice" target="_blank">' . __( 'Repo' ) . '</a>';
             array_unshift( $links, $settings_link, $repo_link );
+            return $links;
+        }
+
+        public function add_plugin_row_meta_links( $links, $file ) {
+            $base = plugin_basename(__FILE__);
+            if ($file == $base) {
+                $links[] = '<a href="https://github.com/ilhamhady/disable-update-notice" target="_blank">' . __( 'Repo' ) . '</a>';
+                $links[] = '<a href="https://wa.me/6281232724414" target="_blank">' . __( 'Contact' ) . '</a>';
+            }
             return $links;
         }
 
