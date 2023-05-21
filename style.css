@@ -1,0 +1,11 @@
+.checklist-item {
+  display: flex;
+}
+
+.checkbox {
+  padding: 10px 0px;
+}
+
+.item-name {
+  padding: 10px;
+}
